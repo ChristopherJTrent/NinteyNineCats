@@ -1,0 +1,39 @@
+<div>
+    <h3> <%= cat.name %> </h3>
+    <% if action == :index %>
+        <a href="<%= cat_url(cat.id) %>">See more!</a> 
+    <% elsif action == :show %>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">ATTRIBUTE</th>
+                <th scope="col">VALUE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">AGE</th>
+                <td><%= cat.age %></td>
+            </tr>
+            <tr>
+                <th scope="row">BIRTH_DATE</th>
+                <td><%= cat.birth_date.to_fs(:long_ordinal) %></td>
+            </tr>
+            <tr>
+                <th scope="row">COLOR</th>
+                <td><%= cat.color %></td>
+            </tr>
+            <tr>
+                <th scope="row">SEX</th>
+                <td><%= cat.sex %></td>
+            </tr>
+            <tr>
+                <th colspan="2">DESCRIPTION</th>
+            </tr>
+            <tr>
+                <td colspan="2"><%= cat.description %></td>
+            </tr>
+        </tbody>
+    </table>
+    <% end %>
+</div>
