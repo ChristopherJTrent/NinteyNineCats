@@ -29,3 +29,13 @@ group :development do
   gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
 end
 
+
+gem "better_errors", "~> 2.10", :groups => [:development, :test]
+
+gem "binding_of_caller", "~> 1.0", :groups => [:development, :test]
+
+gem "pry-rails", "~> 0.3.9", :groups => [:development, :test]
+
+gem "annotate", "~> 3.2", :groups => [:development, :test]
+
+gem "faker", "~> 3.2", :groups => [:development, :test]
