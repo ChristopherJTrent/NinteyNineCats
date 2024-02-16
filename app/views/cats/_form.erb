@@ -2,9 +2,11 @@
 	<label for='name'>Name: 
 		<input type="text" name="cats[name]" id="name" value=<%= cat.name %>>
 	</label> <br />
+
 	<label for="birth_date">Birth Date: 
 		<input type="date" name="cats[birth_date]" id="birth_date" value= <%= cat.birth_date%>>
 	</label> <br />
+
 	<label for="color">Color: 
 		<select name="cats[color]" id="color">
 		<option value="" disabled <%= cat.color == nil ? "selected" : ""%> >Please Select...</option>
@@ -13,13 +15,20 @@
 		<% end %>
 		</select>
 	</label> <br />
+
 	<% Cat::SEX.each do |sex| %>
 		<label for="sex_<%= sex %>"> <%= sex == "M" ? "Male" : "Female" %>
-			<input type="radio" name="cats[sex]" id="sex_<%= sex %>" value=<%= sex %> <%= cat.sex == sex ? "selected" : "" %>>
+			<input  type="radio" 
+					name="cats[sex]" 
+					id="sex_<%= sex %>" 
+					value=<%= sex %> 
+					<%= cat.sex == sex ? "selected" : "" %>>
 		</label>
 	<% end %> <br />
+
 	<label for="description">Description: <br />
 		<textarea name="cats[description]" id="description" cols="30" rows="10"><%= cat.description%></textarea>
 	</label>
+
 	<input type="submit" value="Submit!">
 </form>
