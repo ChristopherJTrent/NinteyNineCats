@@ -1,6 +1,6 @@
 class CatRentalRequest < ApplicationRecord
     STATUS_CODES = %w(PENDING APPROVED DENIED)
-    validates :status, presence: true, inclusion: {in: STATUS_CODES}
+    validates :status, inclusion: {in: STATUS_CODES}
     validates :cat_id, :start_date, :end_date, presence: true
     validate :does_not_overlap_approved_requests
     belongs_to :cat
