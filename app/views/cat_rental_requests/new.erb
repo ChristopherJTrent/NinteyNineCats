@@ -1,9 +1,9 @@
-<form action="<%= cat_cat_rental_requests_url %>">
+<form action="<%= cat_cat_rental_requests_url %>" method="POST">
     <label for="start_date">Start Date: 
         <input type="date" name="cat_rental_requests[start_date]" id="start_date">
-    </label>
+    </label><br />
     <label for="end_date">End Date:
         <input type="date" name="cat_rental_requests[end_date]" id="end_date">
-    </label>
+    </label><br />
     <input type="submit" value="Place rental request">
 </form>
