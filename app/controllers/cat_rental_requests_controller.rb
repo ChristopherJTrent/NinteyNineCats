@@ -5,7 +5,12 @@ class CatRentalRequestsController < ApplicationController
     end
     #* section API
     def create
-
+        req = CatRentalRequest.create!(cat_rental_request_params)
+        if req
+            redirect_to cat_url(req.cat_id)
+        else
+            redirect_to '/'
+        end
     end
 
     private
