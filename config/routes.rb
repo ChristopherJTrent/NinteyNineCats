@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   root "cats#index"
-  resources :cats, except: [:destroy]
+  resources :cats, except: [:destroy] do 
+    resources :cat_rental_requests, only: [:new, :create]
+  end
 end
