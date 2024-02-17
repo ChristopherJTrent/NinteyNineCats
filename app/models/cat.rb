@@ -8,6 +8,9 @@ class Cat < ApplicationRecord
   validates :name, presence: true
   validates :sex, presence: true, inclusion: {in: SEX}
 
+  has_many :cat_rental_requests,
+    dependent: :destroy
+
   def birth_date_cannot_be_future
     return unless birth_date
     unless birth_date < Date.today
