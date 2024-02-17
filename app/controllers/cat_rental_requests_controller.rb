@@ -7,7 +7,7 @@ class CatRentalRequestsController < ApplicationController
     def create
         req = CatRentalRequest.create!(cat_rental_request_params)
         if req
-            redirect_to cat_url(req.cat_id)
+            redirect_to cat_url(params[:cat_id])
         else
             redirect_to '/'
         end
@@ -15,6 +15,10 @@ class CatRentalRequestsController < ApplicationController
 
     private
     def cat_rental_request_params
-        params.require(:cat_rental_requests).permit(:cat_id, :start_date, :end_date)
+        # construct a hash that contains the cat id, start date, and end date.
+        params.require(:cat_rental_requests)
+                .permit(:start_date, :end_date)
+                .merge({cat_id: params[:cat_id]})
+        
     end
 end
