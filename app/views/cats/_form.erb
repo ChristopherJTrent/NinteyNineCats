@@ -1,4 +1,7 @@
-<form action="<%= action == :edit ? edit_cat_url(cat.id) : cats_url %>" method="POST">
+<form action="<%= action == :edit ? cat_url(cat.id) : cats_url %>" method="POST">
+<% if action == :edit %>
+	<input type="hidden" name="_method" value="PATCH">
+<% end %>
 	<label for='name'>Name: 
 		<input type="text" name="cats[name]" id="name" value=<%= cat.name %>>
 	</label> <br />
@@ -22,7 +25,7 @@
 					name="cats[sex]" 
 					id="sex_<%= sex %>" 
 					value=<%= sex %> 
-					<%= cat.sex == sex ? "selected" : "" %>>
+					<%= cat.sex == sex ? "selected=\"\"" : "" %>>
 		</label>
 	<% end %> <br />
 
