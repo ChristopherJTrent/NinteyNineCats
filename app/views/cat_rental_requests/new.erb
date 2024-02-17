@@ -1,4 +1,16 @@
 <form action="<%= cat_cat_rental_requests_url %>" method="POST">
+    <!--@cat will only be filled if we're at a parameterized route-->
+    <% if @cat %>
+        <h2>New rental request for: <%= @cat.name %>
+        <input type="hidden" name="cat_rental_requests[cat_id]" value="<%= @cat.id %>">
+    <% else %>
+        <select name="cat_rental_requests[cat_id]" id="cat_selector">
+            <% @cats.each do |cat| %>
+                <option value="<%= cat.id %>"><%=cat.name%></option>
+            <% end %>
+        </select>
+    <% end %>
+    <br />
     <label for="start_date">Start Date: 
         <input type="date" name="cat_rental_requests[start_date]" id="start_date">
     </label><br />

@@ -1,6 +1,11 @@
 class CatRentalRequestsController < ApplicationController
     #* section user interface
     def new
+        if params[:cat_id]
+            @cat = Cat.find_by(id: params[:cat_id])
+        else
+            @cats = Cat.all
+        end
         render :new
     end
     #* section API
