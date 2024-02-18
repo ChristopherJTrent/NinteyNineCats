@@ -18,6 +18,17 @@ class CatRentalRequestsController < ApplicationController
         end
     end
 
+    def approve
+        req = CatRentalRequest.find_by(id: params[:request_id])
+        req.approve!
+        redirect_to cat_url(req.cat_id)
+    end
+    def deny
+        req = CatRentalRequest.find_by(id: params[:request_id])
+        req.deny!
+        redirect_to cat_url(req.cat_id)
+    end
+
     private
     def cat_rental_request_params
         # construct a hash that contains the cat id, start date, and end date.

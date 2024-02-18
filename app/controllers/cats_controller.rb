@@ -10,15 +10,18 @@ class CatsController < ApplicationController
     render :show
   end
   def new
-    
+
   end
   def edit
-
+    @cat = Cat.find_by(id: params[:id])
+    render :edit
   end
 
   # * section: API
   def update
-  
+    cat = Cat.find_by(id: params[:id])
+    cat.update(cat_params)
+    redirect_to cat_url(params[:id])
   end
   def create
     @cat = Cat.create!(cat_params)

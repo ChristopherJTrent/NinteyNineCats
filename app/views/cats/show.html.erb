@@ -17,7 +17,25 @@
                     <td><%= request.start_date %></td>
                     <td><%= request.end_date %></td>
                     <td>
+                        <% if request.pending? %>
+                            <div>
+                                <form action="<%= cat_rental_requests_approve_url %>" method="POST">
+                                    <input type="hidden" name="_method" value="PATCH">
+                                    <input type="hidden" name="request_id" value="<%= request.id %>">
+                                    <button type="submit">Approve</button>
+                                </form>
+                                <form action="<%= cat_rental_requests_deny_url %>" method="POST">
+                                    <input type="hidden" name="_method" value="PATCH">
+                                    <input type="hidden" name="request_id" value="<%= request.id %>">
+                                    <button type="submit">Deny</button>
+                                </form>
+                            </div>
+
+                        <% else %>
+
                         <%= request.status %>
+
+                        <% end %>
                     </td>
                 </tr>
             <% end %>

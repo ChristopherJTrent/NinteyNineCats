@@ -12,4 +12,6 @@ Rails.application.routes.draw do
     resources :cat_rental_requests, only: [:new]
   end
   resources :cat_rental_requests, only: [:new, :create]
+  patch 'cat_rental_requests/approve', to: 'cat_rental_requests#approve'
+  patch 'cat_rental_requests/deny', to: 'cat_rental_requests#deny'
 end
