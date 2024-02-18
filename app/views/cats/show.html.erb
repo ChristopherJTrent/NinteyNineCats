@@ -1,0 +1,26 @@
+<%= render @cat, action: :show %>
+<% if @requests %>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col" colspan="3">Rental Requests</th>
+            </tr>
+            <tr>
+                <th scope="col">Start Date</th>
+                <th scope="col">End Date</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @requests.each do |request| %>
+                <tr>
+                    <td><%= request.start_date %></td>
+                    <td><%= request.end_date %></td>
+                    <td>
+                        <%= request.status %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+<% end %>
