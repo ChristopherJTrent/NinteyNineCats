@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   root "cats#index"
   resources :cats, except: [:destroy] do 
-    resources :cat_rental_requests, only: [:new, :create]
+    resources :cat_rental_requests, only: [:new]
   end
+  resources :cat_rental_requests, only: [:new, :create]
 end

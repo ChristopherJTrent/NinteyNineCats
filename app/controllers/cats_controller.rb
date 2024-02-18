@@ -10,7 +10,7 @@ class CatsController < ApplicationController
     render :show
   end
   def new
-
+    
   end
   def edit
 
