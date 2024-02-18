@@ -4,7 +4,7 @@
         <h2>New rental request for: <%= @cat.name %>
         <input type="hidden" name="cat_rental_requests[cat_id]" value="<%= @cat.id %>">
     <% else %>
-        <select name="cat_rental_requests[cat_id]" id="cat_selector">
+        <select name="cat_rental_requests[cat_id]" id="cat_selector" required>
             <% @cats.each do |cat| %>
                 <option value="<%= cat.id %>"><%=cat.name%></option>
             <% end %>
@@ -12,10 +12,10 @@
     <% end %>
     <br />
     <label for="start_date">Start Date: 
-        <input type="date" name="cat_rental_requests[start_date]" id="start_date">
+        <input type="date" name="cat_rental_requests[start_date]" id="start_date" required>
     </label><br />
     <label for="end_date">End Date:
-        <input type="date" name="cat_rental_requests[end_date]" id="end_date">
+        <input type="date" name="cat_rental_requests[end_date]" id="end_date" required>
     </label><br />
     <input type="submit" value="Place rental request">
 </form>

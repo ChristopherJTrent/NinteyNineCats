@@ -21,9 +21,10 @@ class CatRentalRequestsController < ApplicationController
     private
     def cat_rental_request_params
         # construct a hash that contains the cat id, start date, and end date.
-        params.require(:cat_rental_requests)
-                .permit(:start_date, :end_date)
-                .merge({cat_id: params[:cat_id]})
+        {cat_id: params[:cat_id]}
+                .merge(params.require(:cat_rental_requests)
+                            .permit(:start_date, :end_date))
+                
         
     end
 end
